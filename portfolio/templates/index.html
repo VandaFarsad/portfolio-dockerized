@@ -60,6 +60,25 @@
     </section>
     {% endif %}
 
+    <!-- Projects section -->
+    {% if projects %}
+    <section class="projects" id="projects">
+        <h2 class="projects-title">Ausgewählte Kunden</h2>
+
+        {% for project_block in projects %}
+        <div class="projects-container">
+            {% for project in project_block %}
+            <div class="project-container project-card">
+                <img src="{{project.image.url}}" alt="{{project.title}}" loading="lazy" class="project-pic" />
+                <h3 class="project-title">{{project.title}}</h3>
+                <p class="project-details">{{project.description}}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+
     <!-- Website scripts -->
     <script src="{% static 'js/app.js' %}"></script>
 
