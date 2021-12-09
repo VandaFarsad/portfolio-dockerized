@@ -42,6 +42,24 @@
         </p>
     </section>
 
+    <!-- Skills section -->
+    {% if skills %}
+    <section class="skills" id="skills">
+        <h2 class="skill-header">Tech Stack</h2>
+
+        {% for skill_block in skills %}
+        <div class="skills-wrapper">
+            <div class="first-set animate__animated animate__pulse">
+                {% for skill in skill_block %}
+                <img max-width="40" max-height="40" src="{{skill.image.url}}" alt="{{skill.title}}" loading="lazy"
+                    class="icon icon-card" title="{{skill.title}}" />
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+
     <!-- Website scripts -->
     <script src="{% static 'js/app.js' %}"></script>
 
