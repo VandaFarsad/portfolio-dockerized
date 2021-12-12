@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  whilegood-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    container_name: whilegood-service
+    image: whilegood-service
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/code
+    environment:
+      - SECRET_KEY=devsecretkey
+      - DEBUG=1
+      - DB_HOST=db
+      - DB_NAME=devdb
+      - DB_USER=devuser
+      - DB_PASS=changeme
+    depends_on:
+      - db
+
+  db:
+    container_name: whilegood-postgres
+    healthcheck:
+      test: "pg_isready -h localhost -p 5432 -q -U devuser -d devdb"
+      interval: 3s
+      timeout: 5s
+      retries: 5
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_DB=devdb
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=changeme
+    volumes:
+      - /var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+    restart: always
