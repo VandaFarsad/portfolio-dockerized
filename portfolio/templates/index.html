@@ -29,9 +29,11 @@
     <!-- More about -->
     <section class="more-about">
         <h2>Mehr über mich</h2>
+        {% for paragraph in more_about_me %}
         <p>
-            {{more_about_me}}
+            {{paragraph}}
         </p>
+        {% endfor %}
     </section>
 
     <!-- Skills section -->
