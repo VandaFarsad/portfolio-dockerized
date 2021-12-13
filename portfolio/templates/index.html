@@ -21,7 +21,7 @@
         <div class="bio animate__animated animate__shakeX">
             <h2 class="bio-title">Über mich</h2>
             <p class="bio-text">
-                Backend-Entwickler mit langjähriger Python-Erfahrung
+                {{about_me}}
             </p>
         </div>
     </section>
@@ -29,20 +29,11 @@
     <!-- More about -->
     <section class="more-about">
         <h2>Mehr über mich</h2>
+        {% for paragraph in more_about_me %}
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            nesciunt excepturi quos obcaecati incidunt voluptatem ipsam sunt ipsum,
-            autem deleniti cupiditate molestias quis unde quae totam porro dicta
-            iure animi inventore, veniam hic! Omnis nulla, delectus a voluptatibus
+            {{paragraph}}
         </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur
-            nostrum dolor minus, libero delectus praesentium perferendis
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-            consequuntur labore? Ea totam voluptas amet!
-        </p>
+        {% endfor %}
     </section>
 
     <!-- Skills section -->
