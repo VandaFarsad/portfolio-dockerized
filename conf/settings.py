@@ -38,10 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
-    'constance.backends.database',
+    "constance.backends.database",
     "constance",  # must be before project apps
-
     "portfolio",
     "core",
 ]
@@ -143,5 +141,8 @@ CONSTANCE_BACKEND = "constance.backends.database.DatabaseBackend"
 
 CONSTANCE_CONFIG = {
     "ABOUT_ME": ("Tell something about yourself.", "About me text field"),
-    "MORE_ABOUT_ME": ("Tell even more about yourself.", "More about me text field"),
+    "MORE_ABOUT_ME": (
+        "Tell even more about yourself.\nInclude '\p' to create a new paragraph.",
+        "More about me text field",
+    ),
 }
