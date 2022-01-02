@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-  whilegood-service:
+  portfolio-service:
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,8 +9,8 @@ services:
       sh -c "python manage.py wait_for_db &&
              python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
-    container_name: whilegood-service
-    image: whilegood-service
+    container_name: portfolio-service
+    image: portfolio-service
     ports:
       - 8000:8000
     volumes:
@@ -26,7 +26,7 @@ services:
       - db
 
   db:
-    container_name: whilegood-postgres
+    container_name: portfolio-postgres
     healthcheck:
       test: "pg_isready -h localhost -p 5432 -q -U devuser -d devdb"
       interval: 3s
