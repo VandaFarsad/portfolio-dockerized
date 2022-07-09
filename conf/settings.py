@@ -143,7 +143,7 @@ CONSTANCE_BACKEND = "constance.backends.database.DatabaseBackend"
 CONSTANCE_CONFIG = {
     "ABOUT_ME": ("Tell something about yourself.", "About me text field"),
     "MORE_ABOUT_ME": (
-        r"Tell even more about yourself.\nInclude '\p' to create a new paragraph.",
+        r"Tell even more about yourself. Include '\p' to create a new paragraph.",
         r"More about me text field",
     ),
 }
