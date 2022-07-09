@@ -1,6 +1,8 @@
 name: CI for branches
 
-on: [push, pull_request]
+on:
+  push: ["main"]
+  pull_request: ["main"]
 
 env:
   POSTGRES_HOST_AUTH_METHOD: trust
