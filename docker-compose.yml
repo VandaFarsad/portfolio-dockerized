@@ -1,44 +1,46 @@
-version: '3.9'
+version: "3.9"
 
 services:
-  portfolio-service:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: >
-      sh -c "python manage.py wait_for_db &&
-             python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:8000"
-    container_name: portfolio-service
-    image: portfolio-service
-    ports:
-      - 8000:8000
-    volumes:
-      - .:/code
-    environment:
-      - SECRET_KEY=devsecretkey
-      - DEBUG=1
-      - DB_HOST=db
-      - DB_NAME=devdb
-      - DB_USER=devuser
-      - DB_PASS=changeme
-    depends_on:
-      - db
-
-  db:
-    container_name: portfolio-postgres
+  postgres:
+    container_name: postgres-service
     healthcheck:
-      test: "pg_isready -h localhost -p 5432 -q -U devuser -d devdb"
+      test: "pg_isready -h localhost -p 5432 -q -U postgres -d postgres"
       interval: 3s
       timeout: 5s
       retries: 5
-    image: postgres:14-alpine
+    image: postgres:13.1-alpine
     environment:
-      - POSTGRES_DB=devdb
-      - POSTGRES_USER=devuser
-      - POSTGRES_PASSWORD=changeme
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: portfolio-service
+    env_file: .env.local
     volumes:
       - /var/lib/postgresql/data/
     ports:
       - "5432:5432"
     restart: always
+
+  portfolio-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: bash /code/docker-entrypoint.local.sh
+    container_name: portfolio-service
+    image: portfolio-service
+    volumes:
+      - .:/code
+      - ../portfolio-service-logs:/logs
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+    env_file: .env.local
+
+networks:
+  default:
+    name: portfolio-network
+    driver: "bridge"
+    ipam:
+      driver: default
+      config:
+        - subnet: 100.100.166.0/24 # you may need to change ip addresses, e.g. 100.100.107.0/24 and so on
+          gateway: 100.100.166.1
