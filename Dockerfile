@@ -1,16 +1,17 @@
-FROM python:3.10.0-slim
+FROM python:3.10-slim
 
 WORKDIR /code
 
-ENV PYTHONUNBUFFERED 1
+# install dependencies
 
-RUN apt-get update \
-    && apt-get install -y libexempi8\
-    gcc make libmariadb-dev git
+COPY ./requirements.txt /code
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+RUN apt-get update && apt-get install -y libexempi8 gcc make libmariadb-dev git
+
+# copy the scripts to the folder
 
 COPY . .
 
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
-
 EXPOSE 8000
+
+ENTRYPOINT ["bash", "/code/docker-entrypoint.sh"]
