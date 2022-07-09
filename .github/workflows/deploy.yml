@@ -27,6 +27,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
@@ -71,7 +74,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio:latest , ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio:${{ steps.vars.outputs.tag }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio:latest , ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio:${{ env.RELEASE_VERSION }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
