@@ -8,8 +8,8 @@ on:
 
 env:
   POSTGRES_HOST_AUTH_METHOD: trust
-  POSTGRES_DB: "django-blueprint-service"
-  DATABASE_NAME: "django-blueprint-service"
+  POSTGRES_DB: "portfolio-service"
+  DATABASE_NAME: "portfolio-service"
   DATABASE_ENGINE: "postgresql"
   DATABASE_USER: postgres
   DATABASE_PASSWORD: postgres
@@ -23,7 +23,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.9]
+        python-version: ["3.10"]
 
     steps:
       - uses: actions/checkout@v3
