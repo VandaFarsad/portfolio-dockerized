@@ -24,7 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-7xijpwlw8fpc07$1gq0i)aq_hf-c#548k+8hn4ad*=b+)gyv=#"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("Debug")
+
+ENVIRONMENT = os.getenv("ENVIRONMENT")
 
 ALLOWED_HOSTS = []
 
@@ -89,6 +91,14 @@ DATABASES = {
     }
 }
 
+if ENVIRONMENT == "production":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -124,6 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.getenv("STATIC_ROOT", "static/")
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "portfolio/data/media"
