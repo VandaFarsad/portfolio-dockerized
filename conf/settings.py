@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-7xijpwlw8fpc07$1gq0i)aq_hf-c#548k+8hn4ad*=b+)gyv=#"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("Debug")
+DEBUG = os.getenv("DEBUG", False)
 
 ENVIRONMENT = os.getenv("ENVIRONMENT")
 
@@ -137,7 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
-STATIC_ROOT = os.getenv("STATIC_ROOT", "static/")
+STATIC_ROOT = BASE_DIR / "static"
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "portfolio/data/media"
