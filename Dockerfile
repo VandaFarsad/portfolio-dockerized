@@ -4,8 +4,8 @@ WORKDIR /code
 
 # install dependencies
 
-COPY ./requirements.txt /code
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
+COPY ci/requirements ci/requirements
+RUN pip install --no-cache-dir --upgrade -r requirements/production.txt
 RUN apt-get update && apt-get install -y libexempi8 gcc make libmariadb-dev git
 
 # copy the scripts to the folder
