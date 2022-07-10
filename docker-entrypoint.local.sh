@@ -9,7 +9,7 @@ echo "Initializing..."
 python manage.py wait_for_db
 
 echo "Installing testing packages"
-pip install -r requirements/deveploment.txt
+pip install -r requirements/development.txt
 
 echo "Running migrations..."
 python manage.py migrate

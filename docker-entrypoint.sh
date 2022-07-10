@@ -4,6 +4,9 @@ set -e
 
 echo "Initializing..."
 
+export ENVIRONMENT=production
+echo export
+
 echo "Running migrations..."
 python manage.py migrate
 

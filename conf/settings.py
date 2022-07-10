@@ -28,7 +28,10 @@ DEBUG = os.getenv("Debug")
 
 ENVIRONMENT = os.getenv("ENVIRONMENT")
 
-ALLOWED_HOSTS = []
+try:
+    ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
+except (KeyError, AttributeError):
+    ALLOWED_HOSTS = []
 
 
 # Application definition
