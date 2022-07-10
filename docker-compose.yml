@@ -1,4 +1,4 @@
-version: "3.1"
+version: "3.8"
 
 services:
   postgres:
@@ -35,12 +35,12 @@ services:
       - postgres
     env_file: .env.local
 
-# networks:
-#   default:
-#     name: portfolio-network
-#     driver: "bridge"
-#     ipam:
-#       driver: default
-#       config:
-#         - subnet: 100.100.166.0/24 # you may need to change ip addresses, e.g. 100.100.107.0/24 and so on
-#           gateway: 100.100.166.1
+networks:
+  default:
+    name: portfolio-service
+    driver: "bridge"
+    # ipam:
+    #   driver: default
+    #   config:
+    #     - subnet: 100.100.107.0/24  # you may need to change ip addresses, e.g. 100.100.107.0/24 and so on
+    #       gateway: 100.100.107.1
