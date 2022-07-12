@@ -31,7 +31,12 @@ ENVIRONMENT = os.getenv("ENVIRONMENT")
 try:
     ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
 except (KeyError, AttributeError):
-    ALLOWED_HOSTS = ["localhost", "0.0.0.0"]
+    ALLOWED_HOSTS = [
+        "localhost",
+        "0.0.0.0",
+        "172.31.28.35",
+        "portfolio-env.eba-3rnwfu86.eu-central-1.elasticbeanstalk.com",
+    ]
 
 
 # Application definition
