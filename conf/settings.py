@@ -31,7 +31,7 @@ ENVIRONMENT = os.getenv("ENVIRONMENT")
 try:
     ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
 except (KeyError, AttributeError):
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ["localhost", "0.0.0.0"]
 
 
 # Application definition
@@ -47,9 +47,11 @@ INSTALLED_APPS = [
     "constance",  # must be before project apps
     "portfolio",
     "core",
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -161,3 +163,11 @@ CONSTANCE_CONFIG = {
         r"More about me text field",
     ),
 }
+
+
+# Debug toolbar
+if DEBUG:
+    import socket  # only if you haven't already imported this
+
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]

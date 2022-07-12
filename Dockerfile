@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y libexempi8 gcc make libmariadb-dev git
 
 COPY . .
 
-ENV ENVIRONMENT production
+ENV ENVIRONMENT production 
+ENV DEBUG True
 
 EXPOSE 8000
 
