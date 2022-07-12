@@ -1,114 +1,121 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
-<head>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
-    <!-- Animate CSS CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-    <title>Vanda Farsad | Backend Developer</title>
-</head>
-
-<body>
-
-    {% include "navigation.html" %}
-
-    <!-- Hero Section -->
-    <section class="hero" id="about">
-        <img src="{% static 'img/man_at_work.svg' %}" alt="vanda-farsad" loading="lazy" class="hero-img" />
-        <div class="bio animate__animated animate__shakeX">
-            <h2 class="bio-title">Über mich</h2>
-            <p class="bio-text">
-                {{about_me}}
-            </p>
-        </div>
-    </section>
-
-    <!-- More about -->
-    <section class="more-about">
-        <h2>Mehr über mich</h2>
-        {% for paragraph in more_about_me %}
-        <p>
-            {{paragraph}}
-        </p>
-        {% endfor %}
-    </section>
-
-    <!-- Skills section -->
-    {% if skills %}
-    <section class="skills" id="skills">
-        <h2 class="skill-header">Tech Stack</h2>
-
-        {% for skill_block in skills %}
-        <div class="skills-wrapper">
-            <div class="first-set animate__animated animate__pulse">
-                {% for skill in skill_block %}
-                <img max-width="40" max-height="40" src="{{skill.image.url}}" alt="{{skill.title}}" loading="lazy"
-                    class="icon icon-card" title="{{skill.title}}" />
-                {% endfor %}
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Index"/>
+        <meta name="keywords" content="Vanda, Farsad"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--CSS Styles -->
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <!-- Animate CSS CDN -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <title>Vanda Farsad | Backend Developer</title>
+    </head>
+    <body>
+        {% include "navigation.html" %}
+        <!-- Hero Section -->
+        <section class="hero" id="about">
+            <img src="{% static 'img/man_at_work.svg' %}"
+                 alt="vanda-farsad"
+                 loading="lazy"
+                 class="hero-img"/>
+            <div class="bio animate__animated animate__shakeX">
+                <h2 class="bio-title">Hey!</h2>
+                <p class="bio-text">{{ about_me }}</p>
             </div>
-        </div>
-        {% endfor %}
-    </section>
-    {% endif %}
-
-    <!-- Projects section -->
-    {% if projects %}
-    <section class="projects" id="projects">
-        <h2 class="projects-title">Ausgewählte Kunden</h2>
-
-        {% for project_block in projects %}
-        <div class="projects-container">
-            {% for project in project_block %}
-            <div class="project-container project-card">
-                <img src="{{project.image.url}}" alt="{{project.title}}" loading="lazy" class="project-pic" />
-                <h3 class="project-title">{{project.title}}</h3>
-                <p class="project-details">{{project.description}}</p>
-            </div>
-            {% endfor %}
-        </div>
-        {% endfor %}
-    </section>
-    {% endif %}
-
-    <!-- Contact section -->
-    <div style="text-align: center;">
-        <section class="contact" id="contact">
-            <h2>Kontakt</h2>
-            <span class="leftRapper" style="white-space: pre-line;">
-                IT Freelancer
-                Dr. Vanda Farsad
-            </span>
-            <span class="rightRapper" style="white-space: pre-line;">
-                +49 172 2890837
-                <a href="mailto:info@whilegood.de">info@whilegood.de</a>
-            </span>
         </section>
-    </div>
-
-    <!-- Social accounts - Fixed to the right -->
-    <div class="socials">
-        <a href="https://www.linkedin.com/in/vanda-farsad-4b98321a5/" target="_blank">
-            <img src="{% static 'img/icons8-linkedin.png' %}" alt="Linkedin" loading="lazy" class="socicon" />
-        </a>
-        <a href="https://www.xing.com/profile/Vanda_Farsad" target="_blank">
-            <img src="{% static 'img/icons8-xing.png' %}" alt="Xing" loading="lazy" class="socicon" />
-        </a>
-        <a href="https://github.com/VandaFarsad" target="_blank">
-            <img src="{% static 'img/icons8-github.gif' %}" alt="Github" class="socicon" />
-        </a>
-    </div>
-
-    <!-- Scroll to top -->
-    <i class="scroll-up" id="scroll-up">
-        <img src="{% static 'img/icons8-upward-arrow.png' %}" class="socicon up-arrow" alt="Upward-Arrow" />
-    </i>
-
-    <!-- Website scripts -->
-    <script src="{% static 'js/app.js' %}"></script>
-
-</body>
-
+        <!-- More about -->
+        <section class="more-about">
+            <h2>ICH HELFE TEAMS, IHRE PRODUKTIVITÄT ZU STEIGERN</h2>
+            {% for paragraph in more_about_me %}<p>{{ paragraph }}</p>{% endfor %}
+        </section>
+        <!-- Skills section -->
+        {% if skills %}
+            <section class="skills" id="skills">
+                <h2 class="skill-header">Tech Stack</h2>
+                {% for skill_block in skills %}
+                    <div class="skills-wrapper">
+                        <div class="first-set animate__animated animate__pulse">
+                            {% for skill in skill_block %}
+                                <img max-width="40"
+                                     max-height="40"
+                                     src="{{ skill.image.url }}"
+                                     alt="{{ skill.title }}"
+                                     loading="lazy"
+                                     class="icon icon-card"
+                                     title="{{ skill.title }}"/>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </section>
+        {% endif %}
+        <!-- Projects section -->
+        {% if projects %}
+            <section class="projects" id="projects">
+                <h2 class="projects-title">Kunden</h2>
+                {% for project_block in projects %}
+                    <div class="projects-container">
+                        {% for project in project_block %}
+                            <div class="project-container project-card">
+                                <img src="{{ project.image.url }}"
+                                     alt="{{ project.title }}"
+                                     loading="lazy"
+                                     class="project-pic"/>
+                                <h3 class="project-title">{{ project.title }}</h3>
+                                <p class="project-details">{{ project.description }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </section>
+        {% endif %}
+        <!-- Contact section -->
+        <div style="text-align: center;">
+            <section class="contact" id="contact">
+                <h2>Kontakt</h2>
+                <span style="white-space: pre-line;">
+                    IT Freelancer
+                    Dr. Vanda Farsad
+                    <a href="mailto:contact@initial-commit.com">contact@initial-commit.com</a>
+                </span>
+            </section>
+        </div>
+        <!-- Social accounts - Fixed to the right -->
+        <div class="socials">
+            <a href="https://www.linkedin.com/in/vanda-farsad-4b98321a5/"
+               target="_blank">
+                <img src="{% static 'img/icons8-linkedin.png' %}"
+                     alt="Linkedin"
+                     loading="lazy"
+                     class="socicon"/>
+            </a>
+            <a href="https://www.xing.com/profile/Vanda_Farsad" target="_blank">
+                <img src="{% static 'img/icons8-xing.png' %}"
+                     alt="Xing"
+                     loading="lazy"
+                     class="socicon"/>
+            </a>
+            <a href="https://github.com/VandaFarsad" target="_blank">
+                <img src="{% static 'img/icons8-github.gif' %}"
+                     alt="Github"
+                     class="socicon"/>
+            </a>
+        </div>
+        <!-- Footer section -->
+        <footer>
+            <p class="copy">© Copyright 2021</p>
+            <p class="copy">
+                <a href="{% url 'impressum' %}" target="_self">Impressum & Datenschutz</a>
+            </p>
+        </footer>
+        <!-- Website scripts -->
+        <script src="{% static 'js/app.js' %}"></script>
+        <!-- Ion icons scripts -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
 </html>
