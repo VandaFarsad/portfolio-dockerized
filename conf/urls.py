@@ -13,11 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import re
+
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.core.exceptions import ImproperlyConfigured
+from django.urls import path, re_path
+from django.views.static import serve
+
+
+def always_static(prefix, view=serve, **kwargs):
+    """Return a URL pattern for serving files."""
+    if not prefix:
+        raise ImproperlyConfigured("Empty static prefix not permitted")
+    return [
+        re_path(r"^%s(?P<path>.*)$" % re.escape(prefix.lstrip("/")), view, kwargs=kwargs),
+    ]
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -28,3 +42,5 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+else:
+    urlpatterns += always_static(settings.STATIC_URL, document_root=settings.STATIC_ROOT, show_indexes=True)
