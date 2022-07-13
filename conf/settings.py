@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-7xijpwlw8fpc07$1gq0i)aq_hf-c#548k+8hn4ad*=b+)gyv=#"
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", False)
@@ -31,12 +31,7 @@ ENVIRONMENT = os.getenv("ENVIRONMENT")
 try:
     ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
 except (KeyError, AttributeError):
-    ALLOWED_HOSTS = [
-        "localhost",
-        "0.0.0.0",
-        "172.31.28.35",
-        "portfolio-env.eba-3rnwfu86.eu-central-1.elasticbeanstalk.com",
-    ]
+    ALLOWED_HOSTS = ["localhost", "0.0.0.0"]
 
 
 # Application definition
