@@ -34,6 +34,12 @@ except (KeyError, AttributeError):
     ALLOWED_HOSTS = ["localhost", "0.0.0.0"]
 
 
+try:
+    CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS").split(",")
+except (KeyError, AttributeError):
+    CSRF_TRUSTED_ORIGINS = []
+
+
 # Application definition
 
 INSTALLED_APPS = [
