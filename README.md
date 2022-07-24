@@ -1,6 +1,6 @@
 # Portfolio Dockerized
 
-A dockerized Django web application as a developer portfolio.
+A developer portfolio template build with a dockerized Django web application.
 
 The Hero and About Me sections can be added and removed via the admin page. Skills and projects can also be customized via the admin page.
 
