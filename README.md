@@ -1,14 +1,14 @@
 # Portfolio Dockerized
 
-A dockerized Django web application for a developer portfolio.
+A developer portfolio template build with a dockerized Django web application.
 
-The Hero and About Me sections can be customized via the Admin page. Skills and projects can also be added and removed via the admin page.
+The Hero and About Me sections can be added and removed via the admin page. Skills and projects can also be customized via the admin page.
 
-In case not obvious — this code serves to demonstrate my way of working. I would not necessarily recommend this for a simple portfolio webage like this.
+In case not obvious — this code serves to demonstrate my way of working. I would not necessarily recommend it for a simple portfolio webage like this.
 
 ## Tools Used
 
-Below are a list of tools and helpers I used:
+Below is a list of tools and helpers I used:
 
 - [Ion Icons](https://ionic.io/ionicons) for hambuger menu bar
 - [Drawkit](https://www.drawkit.io/) for working man illustration
