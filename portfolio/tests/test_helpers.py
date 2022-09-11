@@ -15,7 +15,3 @@ def test_split_into_blocks_len_2():
     skills_splitted = split_into_blocks(Skill.objects.all(), 2)
     assert len(skills_splitted) == 1
     assert len(skills_splitted[0]) == 2
-
-
-def test_split_paragraphs():
-    assert split_paragraphs(r"First paragraph\pSecond paragraph") == ["First paragraph", "Second paragraph"]
