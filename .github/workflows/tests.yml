@@ -25,7 +25,15 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: ["3.10"]
+        db: [sqlite, postgres, mysql]
+        python-version: [3.9, 3.10]
+        include:
+          - db: postgres
+            db_user: runner
+            db_password: ""
+          - db: mysql
+            db_user: root
+            db_password: root
 
     steps:
       - uses: actions/checkout@v3
