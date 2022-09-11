@@ -25,12 +25,8 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        db: [sqlite, postgres]
+        db: [sqlite]
         python-version: ["3.9", "3.10"]
-        include:
-          - db: postgres
-            db_user: postgres
-            db_password: postgres
 
     steps:
       - uses: actions/checkout@v3
