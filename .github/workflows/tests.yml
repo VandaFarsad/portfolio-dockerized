@@ -11,7 +11,7 @@ on:
 env:
   POSTGRES_HOST_AUTH_METHOD: trust
   DATABASE_NAME: "portfolio-service"
-  DATABASE_ENGINE: "db.sqlite3"
+  DATABASE_ENGINE: "sqlite3"
   SECRET_KEY: "6cge_dd_!6mx@u0olset6)gib-z*!vum048q4k#e-^(#+%#3$5"
 
 jobs:
@@ -39,10 +39,7 @@ jobs:
       - name: Lint with Flake8
         run: |
           flake8 .
-          export
 
       - name: Run Tests
         run: |
-          export DATABASE_NAME="portfolio-service"
-          export DATABASE_ENGINE="db.sqlite3"
           pytest
