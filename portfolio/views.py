@@ -1,7 +1,7 @@
 from constance import config
 from django.views.generic import TemplateView
 
-from helpers import split_into_blocks, split_paragraphs
+from .helpers import split_into_blocks, split_paragraphs
 
 from .models import Project, Skill
 
