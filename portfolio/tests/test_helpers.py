@@ -1,5 +1,5 @@
 import pytest
-from portfolio.helpers import split_into_blocks, split_paragraphs
+from portfolio.helpers import split_into_blocks
 from portfolio.models import Skill
 
 
