@@ -1,9 +1,11 @@
+from typing import Iterable
+
 from django.db.models.query import QuerySet
 
 
-def split_into_blocks(queryset: QuerySet, sublist_len=3) -> list[list[QuerySet]]:
-    """Splitting a QuerySet into a nested list, where each sub list has a fixed length."""
-    return [queryset[i : i + sublist_len] for i in range(0, len(queryset), sublist_len)]
+def split_into_blocks(iterable: Iterable, sublist_len=3) -> list[list]:
+    """Splitting an Iterable into a nested list, where each sub list has a fixed length."""
+    return [iterable[i : i + sublist_len] for i in range(0, len(iterable), sublist_len)]
 
 
 def split_paragraphs(content: str) -> list[str]:
