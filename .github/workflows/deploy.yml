@@ -7,13 +7,8 @@ on:
 
 env:
   POSTGRES_HOST_AUTH_METHOD: trust
-  POSTGRES_DB: "portfolio-service"
   DATABASE_NAME: "portfolio-service"
-  DATABASE_ENGINE: "postgresql"
-  DATABASE_USER: postgres
-  DATABASE_PASSWORD: postgres
-  DATABASE_HOST: postgres
-  DATABASE_PORT: 5432
+  DATABASE_ENGINE: "sqlite3"
   SECRET_KEY: "6cge_dd_!6mx@u0olset6)gib-z*!vum048q4k#e-^(#+%#3$5"
 
 jobs:
@@ -22,7 +17,8 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: ["3.10"]
+        db: [sqlite]
+        python-version: ["3.9", "3.10"]
 
     steps:
       - uses: actions/checkout@v3
