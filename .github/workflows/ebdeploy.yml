@@ -6,8 +6,7 @@ on:
       - "v[0-9]+.[0-9]+.[0-9]+"
 
 env:
-  POSTGRES_HOST_AUTH_METHOD: trust
-  DATABASE_NAME: "portfolio-service"
+  DATABASE_NAME: "db.sqlite3"
   DATABASE_ENGINE: "sqlite3"
   SECRET_KEY: "6cge_dd_!6mx@u0olset6)gib-z*!vum048q4k#e-^(#+%#3$5"
 
