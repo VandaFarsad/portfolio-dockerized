@@ -1,8 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
 - [Portfolio Dockerized](#portfolio-dockerized)
   - [Tools Used](#tools-used)
   - [Local development](#local-development)
@@ -87,7 +85,7 @@ Or for more granular developing and testing:
 pytest --ds=conf.test_settings -c /dev/null -s
 ```
 
-You can generate an HTML `coverage` report by running:
+You can generate a HTML `coverage` report by running:
 
 ```bash
 coverage html
