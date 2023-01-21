@@ -13,12 +13,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        db: [sqlite]
-        python-version: ["3.9", "3.10", "3.11"]
-
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
@@ -30,7 +24,7 @@ jobs:
         run: zip -r deploy.zip . -x '*.git*'
 
       - name: Deploy to EB
-        uses: einaregilsson/beanstalk-deploy@v20
+        uses: einaregilsson/beanstalk-deploy@v21
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
