@@ -28,14 +28,10 @@ DEBUG = os.getenv("DEBUG", False)
 
 ENVIRONMENT = os.getenv("ENVIRONMENT")
 
-try:
-    ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
-except (KeyError, AttributeError):
-    ALLOWED_HOSTS = ["localhost", "0.0.0.0"]
-
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,0.0.0.0").split(",")
 
 try:
-    CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS").split(",")
+    CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS").split(",")  # type: ignore
 except (KeyError, AttributeError):
     CSRF_TRUSTED_ORIGINS = []
 
@@ -102,13 +98,6 @@ DATABASES = {
     }
 }
 
-if ENVIRONMENT == "production":
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

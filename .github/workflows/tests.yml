@@ -9,8 +9,7 @@ on:
       - "main"
 
 env:
-  POSTGRES_HOST_AUTH_METHOD: trust
-  DATABASE_NAME: "portfolio-service"
+  DATABASE_NAME: "db.sqlite3"
   DATABASE_ENGINE: "sqlite3"
   SECRET_KEY: "6cge_dd_!6mx@u0olset6)gib-z*!vum048q4k#e-^(#+%#3$5"
 
@@ -21,7 +20,7 @@ jobs:
       max-parallel: 4
       matrix:
         db: [sqlite]
-        python-version: ["3.9", "3.10"]
+        python-version: ["3.9", "3.10", "3.11"]
 
     steps:
       - uses: actions/checkout@v3
