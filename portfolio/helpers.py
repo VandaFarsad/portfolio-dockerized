@@ -5,4 +5,4 @@ def split_into_blocks(iterable: list, sublist_len=3) -> list[list]:
     If the length of the iterable list is not divisible by <sublist_len>, the last sublist will contain the remaining
     elements.
     """
-    return [iterable[i : i + sublist_len] for i in range(0, len(iterable), sublist_len)]
+    return [iterable[i : i + sublist_len] for i in range(0, len(iterable), sublist_len)]  # noqa
