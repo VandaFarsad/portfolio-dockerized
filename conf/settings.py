@@ -29,7 +29,11 @@ DEBUG = os.getenv("DEBUG", False)
 ENVIRONMENT = os.getenv("ENVIRONMENT")
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,0.0.0.0").split(",")
-CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+
+try:
+    CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS").split(",")  # type: ignore
+except (KeyError, AttributeError):
+    CSRF_TRUSTED_ORIGINS = []
 
 
 # Application definition
