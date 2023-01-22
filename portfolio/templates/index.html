@@ -1,4 +1,5 @@
 {% extends "base.html" %} {% block content %} {% load static %}
+
 <!-- Hero Section -->
 <section class="hero" id="about">
   <img src="{% static 'img/man_at_work.svg' %}" alt="vanda-farsad" loading="lazy" class="hero-img" />
@@ -7,6 +8,7 @@
     <p class="bio-text">{{ about_me }}</p>
   </div>
 </section>
+
 <!-- More about -->
 <section class="more-about">
   <h2>ICH HELFE TEAMS, IHRE PRODUKTIVITÄT ZU STEIGERN</h2>
@@ -14,6 +16,7 @@
   <p>{{ paragraph }}</p>
   {% endfor %}
 </section>
+
 <!-- Skills section -->
 {% if skills %}
 <section class="skills" id="skills">
@@ -37,6 +40,7 @@
   {% endfor %}
 </section>
 {% endif %}
+
 <!-- Projects section -->
 {% if projects %}
 <section class="projects" id="projects">
@@ -54,6 +58,7 @@
   {% endfor %}
 </section>
 {% endif %}
+
 <!-- Contact section -->
 <div style="text-align: center">
   <section class="contact" id="contact">
@@ -64,6 +69,7 @@
     </span>
   </section>
 </div>
+
 <!-- Social accounts - Fixed to the right -->
 <div class="socials">
   <a href="https://www.linkedin.com/in/vanda-farsad-4b98321a5/" target="_blank">
@@ -76,6 +82,7 @@
     <img src="{% static 'img/icons8-github.gif' %}" alt="Github" class="socicon" />
   </a>
 </div>
+
 <!-- Footer section -->
 <footer>
   <p class="copy">© Copyright 2021</p>
