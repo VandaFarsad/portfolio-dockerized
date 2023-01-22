@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Index" />
+    <meta name="keywords" content="Vanda, Farsad" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/ajax.css' %}" />
+    <title>Vanda Farsad | Backend Developer</title>
+  </head>
+  <body>
+    {% include 'navigation.html' %} {% block content %} {% endblock content %}
+    <script src="{% static 'js/app.js' %}"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js"></script>
+  </body>
+  {% block scripts %} {% endblock scripts %}
+</html>
