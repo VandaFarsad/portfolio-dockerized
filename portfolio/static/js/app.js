@@ -3,9 +3,6 @@ const burger = document.querySelector("#burger-menu");
 const ul = document.querySelector("nav ul");
 const nav = document.querySelector("nav");
 
-// scroll to top selection
-const scrollUp = document.querySelector("#scroll-up");
-
 // select nav links
 const navLink = document.querySelectorAll(".nav-link");
 
