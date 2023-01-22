@@ -164,7 +164,9 @@ nav ul li {
 .bio p {
   line-height: var(--line-height);
   padding: 0.3rem 0;
+  text-align: justify;
 }
+
 /* Hero section ends */
 
 /* More about */
@@ -183,6 +185,23 @@ nav ul li {
   padding: 0.4rem;
 }
 /* More about ends */
+
+/* Privacy */
+.privacy {
+  background-color: var(--bg-color);
+  padding: 1rem 6rem;
+}
+
+.privacy h2 {
+  margin-bottom: var(--bottom-margin);
+  text-align: center;
+}
+
+.privacy p {
+  line-height: var(--line-height);
+  padding: 0.4rem;
+}
+/* Privacy ends */
 
 /* Skills section */
 .skills {
@@ -386,6 +405,19 @@ footer {
   }
 
   .more-about p {
+    text-align: justify;
+  }
+
+  .privacy {
+    margin-top: 2rem;
+    padding: 1rem 3.5rem;
+  }
+
+  .privacy h2 {
+    text-align: center;
+  }
+
+  .privacy p {
     text-align: justify;
   }
 
