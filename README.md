@@ -61,7 +61,7 @@ SECRET_KEY
 Run a web server with this service:
 
 ```bash
-docker-compose -f docker-compose.dev.yml up
+docker-compose -f docker-compose.local.yml up
 ```
 
 You can enter the pod with:
