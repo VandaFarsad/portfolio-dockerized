@@ -42,7 +42,6 @@ Create an file `.env.local` in the root directory of the repository and add:
 ```
 # Please take care that you do not inadvertently commit any configuration secrets
 #
-GITLAB_PIP_TOKEN=<your-personal-gitlab-access-token-for-reading-packages>
 # PROJECT ENVIRONMENT
 DEBUG
 ENVIRONMENT
