@@ -3,7 +3,7 @@
 set -e
 
 # install netcat for tcp-port-wait
-apt-get update && apt-get install -y --no-install-recommends netcat git
+apt-get update && apt-get install -y --no-install-recommends git
 
 echo "Initializing..."
 python manage.py wait_for_db
