@@ -6,7 +6,7 @@ WORKDIR /code
 
 COPY requirements requirements
 RUN pip install --no-cache-dir --upgrade -r requirements/production.txt
-RUN apt-get update && apt-get install -y libexempi8 gcc make libmariadb-dev git
+RUN apt-get update && apt-get install -y libexempi8 gcc make libmariadb-dev nginx
 
 # copy the scripts to the folder
 

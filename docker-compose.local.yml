@@ -8,7 +8,7 @@ services:
       interval: 3s
       timeout: 5s
       retries: 5
-    image: postgres:13.1-alpine
+    image: postgres:14-alpine
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_DB: portfolio-service
@@ -42,5 +42,5 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 100.100.107.0/24  # you may need to change ip addresses, e.g. 100.100.107.0/24 and so on
+        - subnet: 100.100.107.0/24 # you may need to change ip addresses, e.g. 100.100.107.0/24 and so on
           gateway: 100.100.107.1
